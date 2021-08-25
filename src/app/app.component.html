@@ -1,5 +1,11 @@
-<input [(ngModel)]="firstName">
+<input [(ngModel)]="userform.firstname">
+<input [(ngModel)]="userform.dob" type="date">
 
-<button (click)= "handleClick()">save</button>
+<button (click)="handleClick()" >Save</button>
 
-<button (click)= "delete()">delete</button>
+<ol>
+    <li *ngFor="let user of users; let i = index">{{user.firstname}}<button (click)="deleteUser(user.id, i)">Delete</button>
+    </li>
+</ol>
+
+<app-counter [fromParent]="title" ></app-counter>
